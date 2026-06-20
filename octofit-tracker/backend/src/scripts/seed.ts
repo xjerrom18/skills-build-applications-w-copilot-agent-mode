@@ -1,3 +1,22 @@
+/**
+ * Seed script for OctoFit Tracker database
+ *
+ * Purpose:
+ * - Connects to MongoDB (MONGO_URI) and populates the `octofit` database with
+ *   sample Users, Workouts, Sessions, and Metrics for local development.
+ *
+ * How to run:
+ * 1. cd octofit-tracker/backend
+ * 2. npm install
+ * 3. cp .env.example .env   # optional; edit MONGO_URI if needed
+ * 4. npm run seed
+ *
+ * Notes:
+ * - The script clears the User, Workout, Session, and Metric collections before
+ *   inserting seed data. Use with caution against production databases.
+ * - Default MONGO_URI: mongodb://localhost:27017/octofit
+ */
+
 import { connectDb, disconnectDb } from '../config/database'
 import User from '../models/User'
 import Workout from '../models/Workout'
