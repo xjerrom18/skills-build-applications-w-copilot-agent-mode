@@ -5,6 +5,27 @@
  * - Connects to MongoDB (MONGO_URI) and populates the `octofit` database with
  *   sample Users, Workouts, Sessions, and Metrics for local development.
  *
+ * Test data seeded by this script:
+ *
+ * Users (2):
+ * - { name: 'Alice', email: 'alice@example.com' }
+ * - { name: 'Bob',   email: 'bob@example.com' }
+ *
+ * Workouts (2):
+ * - { name: 'Morning Run', description: '5km easy run', difficulty: 'easy' }
+ * - { name: 'HIIT Blast',  description: 'High intensity interval training', difficulty: 'hard' }
+ *
+ * Sessions (2):
+ * - Session 1: user = Alice, workout = Morning Run, startAt = now - 1 hour, endAt = now,
+ *   notes: 'Felt great, steady pace.'
+ * - Session 2: user = Bob,   workout = HIIT Blast,  startAt = now - 30 minutes,
+ *   notes: 'Intense session, lots of sweat.'
+ *
+ * Metrics (3):
+ * - { session: Session1, type: 'distance_km', value: 5, unit: 'km' }
+ * - { session: Session1, type: 'calories',    value: 320, unit: 'kcal' }
+ * - { session: Session2, type: 'duration_min', value: 30, unit: 'min' }
+ *
  * How to run:
  * 1. cd octofit-tracker/backend
  * 2. npm install
