@@ -1,24 +1,14 @@
-# OctoFit Tracker
+## Seeding the OctoFit database
 
-This directory contains the OctoFit Tracker multi-tier application scaffold.
+A seed script is included to initialize and populate the MongoDB database with sample data (users, workouts, sessions, and metrics).
 
-- Frontend: React 19 + Vite (development port 5173)
-- Backend: Node.js + Express + TypeScript (development port 8000)
-- Database: MongoDB (default port 27017)
+From the backend directory:
 
-To get started:
+1. Install dependencies:
+   - npm install
+2. Create environment file if needed:
+   - cp .env.example .env
+3. Run the seed script:
+   - npm run seed
 
-Frontend
-
-1. cd octofit-tracker/frontend
-2. npm install
-3. npm run dev
-
-Backend
-
-1. cd octofit-tracker/backend
-2. npm install
-3. cp .env.example .env && edit if needed
-4. npm run dev
-
-Make sure MongoDB is running (mongodb://localhost:27017) before starting the backend.
+The seed script connects to MONGO_URI (default: mongodb://localhost:27017/octofit), clears relevant collections, and inserts sample documents.
