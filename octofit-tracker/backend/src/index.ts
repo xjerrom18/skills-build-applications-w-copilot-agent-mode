@@ -1,9 +1,9 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import routes from './routes'
 import { errorHandler } from './middleware/errorHandler'
+import { connectDb } from './database'
 
 dotenv.config()
 
@@ -12,10 +12,9 @@ app.use(cors({ origin: 'http://localhost:5173' }))
 app.use(express.json())
 
 const PORT = Number(process.env.PORT) || 8000
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/octofit'
 
-mongoose
-  .connect(MONGO_URI)
+// Use centralized database connection
+connectDb()
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err))
 

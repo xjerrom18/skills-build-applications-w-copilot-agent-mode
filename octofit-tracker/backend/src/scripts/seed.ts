@@ -1,16 +1,13 @@
-import dotenv from 'dotenv'
-import mongoose from 'mongoose'
+import { connectDb, disconnectDb } from '../database'
 import User from '../models/User'
 import Workout from '../models/Workout'
 import Session from '../models/Session'
 import Metric from '../models/Metric'
 
-dotenv.config()
-
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/octofit'
 
 async function main() {
-  await mongoose.connect(MONGO_URI)
+  await connectDb()
   console.log('Connected to', MONGO_URI)
 
   // Clear existing data
@@ -65,7 +62,7 @@ async function main() {
     metrics: metrics.length
   })
 
-  await mongoose.disconnect()
+  await disconnectDb()
   console.log('Disconnected from MongoDB')
 }
 
